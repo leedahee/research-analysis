@@ -11,26 +11,51 @@ library(tidyverse)
 ```
 ##READ Excel file
 ```{r}
-data1 <-readxl::read_excel("coding form for PSD dimension-data (1).xlsx")
+data1 <-readxl::read_excel("workbook4.xlsx")
 data2 <- t(data1)
+ncol(data1)
 data3<-data2%>%
   na.omit()
+nrow(data3)
+204/4
+
 ```
+## Image list , index(linder_4)=20
+```{r}
+image1 <- c('gude_3','bentz_4','bentz_3','bentz_2','peiris_2', 'caparo_2','kritchevsky_1','gude_2','wadland_1','blomberg_1', 'wadland_2','peiris_1','pichert_2','caparo_1','linder_2', 'pichert_3','linder_1','keswani_1','linder_3','pichert_1','bentz_1')
+
+
+image2<-c('tierney_1','hershey1986_2','winickoff_1', 'gehlbach_1','tierney_2','hershey1986_1','beck_7','rantz_1','bech_1','gude_1','tierney_3','ornstein_1','pimlott_1','lobach1996_1', 'rantz_2','hershey1988_1','sondergarrd_1','balas_1','verstappen_1','beck_10', 'beck_2','beck_11','beck_3','beck_5','beck_4','beck_6','beck_12', 'beck_9','beck_8')
+
+imageTotal <- c(image1,image2)
+length(imageTotal)
+```
+
 ##Overall IRR
 ```{r}
 twoRaters <- data3[-c(1:2), ]
-kappa2(twoRaters[,c(1,2)], "unweighted")
+twoRaters_noLinder <- twoRaters[-(77:80),]
+kappa2(twoRaters_noLinder[,c(1,2)], "unweighted")
 ```
 ## Generate two separate tables by each rater
 ```{r}
-vp <- matrix(twoRaters[,c(1)], byrow=TRUE, ncol=4)
-dh <- matrix(twoRaters[,c(2)], byrow=TRUE, ncol=4)
+vp <- matrix(twoRaters_noLinder[,c(1)], byrow=TRUE, ncol=4)
+dh <- matrix(twoRaters_noLinder[,c(2)], byrow=TRUE, ncol=4)
+
+
+```
+##DataTable
+```{r}
+rownames(vp)<- imageTotal
+rownames(dh)<- imageTotal
+colnames(vp)<-c('measure', 'ascribee', 'performance', 'time')
+colnames(dh)<-c('measure', 'ascribee', 'performance', 'time')
 ```
 ## IRR for each dimension
 ```{r}
 calIrr<-function(i){
  dimensionFrame <- data.frame(dh[,i], vp[,i])
-irrI<-kappa2(dimensionFrame, "unweighted") 
+  irrI<-kappa2(dimensionFrame, "unweighted") 
 return(irrI)
 }
 
@@ -41,5 +66,35 @@ time <- calIrr(4)
 
 cbind(measure, ascribee, performance, time)
 ```
+## After discussion
+```{r}
+afterDiscussion <- as.data.frame(vp)
+afterDiscussion$performance['keswani_1']<-0
+
+MAPT<-afterDiscussion%>%
+  mutate(combination=case_when(measure==1&ascribee==1&performance==1&time==1~'MAPT',
+                  measure==1&ascribee==1&performance==1~'MAP',
+                  ascribee==1&performance==1&time==1~'APT',
+                  measure==1&ascribee==1~'MA',
+                ascribee==1&performance==1~'AP',
+                 performance==1&time==1~'PT',
+                measure==1&performance==1~'PM',
+                time==1~'T',
+                performance==1~'P',
+                measure == 1 ~ 'M',
+                  ascribee==1~'A'))
+
+rownames(MAPT)<-imageTotal
+
+result=MAPT%>%
+  group_by(combination) %>%
+  summarise(Number=n())%>%
+  arrange(desc(Number)) %>% rbind(c("Total",sum(result$Number)))
+
+  add_row(result,sum(result$Number))
+
+
+```
+
 
 

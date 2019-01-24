@@ -5,4 +5,6 @@ Coders coded the presence of performance summary display in each study. To coder
 ### Inter-rater reliability
 To assess inter-rater reliability we measured agreement on the number of PSD codes in each study using a two-way mixed, absolute, single-measures intra-class correlation (ICC) statistic. After coding was completed independently for about half of the studies agreement was in the excellent range at 92.1%.
 
+###### reference : Hallgren K. A. (2012). Computing Inter-Rater Reliability for Observational Data: An Overview and Tutorial. Tutorials in quantitative methods for psychology, 8(1), 23-34.
+
 

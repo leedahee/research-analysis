@@ -9,12 +9,13 @@ To assess inter-rater reliability we measured agreement on the number of PSD cod
 
 
 ### Dimension study
-#### Units of analysis
+##### Units of analysis
 The unit of analysis is a single visualization cropped from a published study of audit and feedback. It includes title and index relevant to the image to convey a contextual information.
-#### Coding process.
+##### Coding process.
 Each coder reviews the codebook and discusses the meaning of the code. In pilot phase, each coder independently codes 3 PSDs and compare the answers. Coders discussed differences in coding and revised the codebook until agreement on a final codebook is reached. Coders code the presence of any dimension for each PSD (0,or 1). After two raters independently coded first half of the sample, we assessed inter-rater reliability. All raters coded all displays and resolved a disagreements by discussion.
-#### Analysis
+##### Analysis
 To assess inter-rater reliability we measured agreement on the presence of dimension codes in each display using inter-rater reliability(IRR) statistic.
+
 
 
 

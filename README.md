@@ -1,6 +1,6 @@
 # research-analysis 
 ### Identification study
-### Units of analysis
+##### Units of analysis
 The unit of analysis was the published A&F study, including a PDF document and its supplementary material
 ##### Coding process
 Coders coded the number of performance summary display in each study. To coders independently coded all studies and displays and then discussed differences in coding to achieve consensus and determine final codes for each sample. Coding was conducted over a period of 1 month.

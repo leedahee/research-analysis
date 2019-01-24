@@ -1,0 +1,20 @@
+---
+title: "display_lab"
+author: "DAHEE"
+date: "7/30/2018"
+output: html_document
+---
+```{r}
+library (dplyr)
+library (irr)
+library(tidyverse)
+```
+##whole ICC
+```{r}
+raw <-readxl::read_excel("identification.xlsx")
+dfa <- raw[,c(2,3)]
+print(icc(dfa, model='twoway', type='consistency', unit='average'))
+dfa1 <- raw[1:19,c(2,3)]
+print(icc(dfa1, model='twoway', type='consistency', unit='average'))
+```
+

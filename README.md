@@ -1,4 +1,6 @@
 # research-analysis 
+In order to evaluate internal validity of the code bood we used for a content analysis, we calculated inter-rater reliability (or intra-class reliability)
+
 ### Identification study
 ##### Units of analysis
 The unit of analysis was the published A&F study, including a PDF document and its supplementary material
